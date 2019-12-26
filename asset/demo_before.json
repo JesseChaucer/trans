@@ -1,0 +1,20 @@
+{
+  "en_US": {
+      "主动还币": "en1",
+      "保险基金@DEPRECATED@": "en2",
+      "强平还币": "en3",
+      "待还资产@DEPRECATED@": "待还资产-english"
+  },
+  "ja_JP": {
+      "主动还币": "主动还币",
+      "保险基金@DEPRECATED@": "保险基金",
+      "强平还币": "强平还币",
+      "待还资产@DEPRECATED@": "待还资产-japan"
+  },
+  "zh_Hans_CN": {
+      "主动还币": "主动还币",
+      "保险基金@DEPRECATED@": "保险基金",
+      "强平还币": "强平还币",
+      "待还资产@DEPRECATED@": "待还资产-chinese"
+  }
+}

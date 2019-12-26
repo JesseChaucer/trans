@@ -1,0 +1,110 @@
+{
+  "success": true,
+  "data": {
+    "id": "52046060.984",
+    "creator": "40290837.1164",
+    "title": "【CoinEx】期货交割-英日韩翻译需求",
+    "createTime": 1567504986960,
+    "ownerTrans": [
+      "52740187.1124",
+      "52740187.1436",
+      "52046060.1200",
+      "52046060.1568",
+      "52046060.1404",
+      "52046060.1100",
+      "52046060.1442",
+      "52046060.1657",
+      "52046060.1804"
+    ],
+    "trans": [
+      {
+        "id": "52046060.1200",
+        "text": "期货交割",
+        "mark": "1",
+        "en_US": "Futures delivery",
+        "ja_JP": "先物受渡",
+        "ko_KP": "선물인도"
+      },
+      {
+        "id": "46943533.674",
+        "text": "交割时间",
+        "mark": "1",
+        "en_US": "Delivery Date",
+        "ja_JP": "受渡時間",
+        "ko_KP": "인도시간"
+      },
+      {
+        "id": "52046060.1568",
+        "text": "交割价",
+        "mark": "1",
+        "en_US": "Delivery price",
+        "ja_JP": "受渡価格",
+        "ko_KP": "인도가격"
+      },
+      {
+        "id": "52046060.1404",
+        "text": "分摊比例",
+        "mark": "1",
+        "en_US": "Clawback ratio",
+        "ja_JP": "割り当て率",
+        "ko_KP": "분담 비율"
+      },
+      {
+        "id": "52046060.1100",
+        "text": "期货交割时，如果出现穿仓用户亏损，该部分将于所有盈利用户分摊，分摊比例=总亏损/总盈利",
+        "mark": "1",
+        "en_US": "Upon futures delivery, the remaining portion of the bankrupt positions will be clawed back by the profited users against the ratio of Total Loss/Total Gain",
+        "ja_JP": "先物が受渡とき、破産で損失がある場合に、その部分はすべての収益があるユーザーに割り当てて、割り当て率=合計損失/合計利益",
+        "ko_KP": "선물인도 시 파산 회원의 손실은 수익을 받은 회원들이 분담할 것입니다. 분담 비율 = 총 손실 / 총 수익"
+      },
+      {
+        "id": "46943533.575",
+        "text": "当期盈亏",
+        "mark": "1",
+        "en_US": "Current PNL",
+        "ja_JP": "当期損得",
+        "ko_KP": "당기손익"
+      },
+      {
+        "id": "52046060.1442",
+        "text": "对应周期的交割盈亏结算",
+        "mark": "1",
+        "en_US": "Delivery PNL during the corresponding periods",
+        "ja_JP": "対応する期間での受渡損益決済",
+        "ko_KP": "대응 주기의 인도손익 결제"
+      },
+      {
+        "id": "52046060.1657",
+        "text": "交割结算中，无法操作",
+        "mark": "1",
+        "en_US": "No operation available during futures delivery",
+        "ja_JP": "受渡決済中、操作できません。",
+        "ko_KP": "인도 차리 중이므로 조작할 수 없습니다."
+      },
+      {
+        "id": "52046060.1804",
+        "text": "我的分摊",
+        "mark": "1",
+        "en_US": "My clawback",
+        "ja_JP": "私の割り当て",
+        "ko_KP": "나의 분담"
+      },
+      {
+        "id": "52740187.1124",
+        "text": "备注：如首次免息借币订单未还清，则杠杆账户资产不可转出；",
+        "mark": "1",
+        "en_US": "Note: If your first free borrowed coins in margin trading have not been repaid, the assets of your margin account cannot be transferred.",
+        "ja_JP": "備考：無利息の初回借金注文で資金を返済せずに、レバレッジ口座の資産が出金できません。",
+        "ko_KP": "비고: 무료로 받은 첫 대출을 반환하지 않으면 마진계정의 자산은 송금할 수 없습니다."
+      },
+      {
+        "id": "52740187.1436",
+        "text": "未实名认证用户暂不支持理财功能，去认证>",
+        "mark": "1",
+        "en_US": "Unverified users cannot have access to Financing Account, go to verify&gt;",
+        "ja_JP": "身分認証未完了のユーザーが理財機能利用できません。認証する&gt;",
+        "ko_KP": "실명인증을 완성하지 않으면 재테크 서비스를 이용할 수 없습니다. 인증하기&gt;"
+      }
+    ]
+  }
+}
