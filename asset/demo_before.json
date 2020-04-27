@@ -3,13 +3,19 @@
       "主动还币": "en1",
       "保险基金@DEPRECATED@": "en2",
       "强平还币": "en3",
-      "待还资产@DEPRECATED@": "待还资产-english"
+      "待还资产@DEPRECATED@": "en4"
   },
   "ja_JP": {
-      "主动还币": "主动还币",
-      "保险基金@DEPRECATED@": "保险基金",
+      "主动还币": "CETの保有量",
+      "保险基金@DEPRECATED@": "取引手数料",
       "强平还币": "强平还币",
       "待还资产@DEPRECATED@": "待还资产-japan"
+  },
+  "ko_KP": {
+      "主动还币": "主动还币",
+      "保险基金@DEPRECATED@": "VIP 레벨",
+      "强平还币": "VIP 수수료 안내",
+      "待还资产@DEPRECATED@": "거래 수수료"
   },
   "zh_Hans_CN": {
       "主动还币": "主动还币",

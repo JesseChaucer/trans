@@ -1,5 +1,5 @@
 /**
- * 用英语替换其他语言--只替换未翻译字段
+ * 用英语替换其他语言
  */
 package translate
 
@@ -13,22 +13,13 @@ import (
 	"inAction/fileUtil/util"
 )
 
-func ReplaceWithEn(filePath string) {
-	fmt.Println("replace 未翻译字段")
+func ReplaceAllWithEn(filePath string) {
+	fmt.Println("replace all")
 	langMap := util.JsonToMap(filePath)
-	// 中文json
-	cn := langMap["zh_Hans_CN"]
-	// 英文json
-	us := langMap["en_US"]
-	for lang, _ := range langMap {
+	for key, _ := range langMap {
 		// 不是英语/简体汉语/繁体汉语，用英语替换
-		if (lang != "en_US" && lang != "zh_Hans_CN" && lang != "zh_Hant_HK") {
-			for field, val := range langMap[lang] {
-				// 如果未翻译(是中文)，则替换成英文
-				if (val == cn[field]) {
-					langMap[lang][field] = us[field]
-				}
-			}
+		if (key != "en_US" && key != "zh_Hans_CN" && key != "zh_Hant_HK") {
+			langMap[key] = langMap["en_US"]
 		}
 	}
 
@@ -45,6 +36,6 @@ func ReplaceWithEn(filePath string) {
 	if err != nil {
 		log.Fatalln(err)
 	} else {
-		fmt.Println("replace 未翻译字段 success...")
+		fmt.Println("replace all success...")
 	}
 }
