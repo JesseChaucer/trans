@@ -1,5 +1,5 @@
 /* 
- * 读取 json 文件，返回 map
+ * 读取 多语言的 json 文件，返回 map
 */
 package util
 
