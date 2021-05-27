@@ -5,11 +5,12 @@ import (
 	"flag"
 	"os"
 
-	"inAction/fileUtil/translate"
+	"inAction/trans/translate"
 )
 
 func main1() {
-	translate.FromTransSystem("73966177.704")
+	translate.FromTransSystem("104407325.1157")
+	// translate.DeleteDeprecated("./asset/index.json")
 }
 
 func main() {
@@ -20,7 +21,7 @@ func main() {
 	flag.StringVar(&filePath, "d", "", "传入文件路径, 删除 @deprecated@ 字段")
 	flag.StringVar(&filePath, "r", "", "传入文件路径, 用英语替换其他语言--只替换未翻译的字段")
 	flag.StringVar(&filePath, "ra", "", "传入文件路径, 用英语替换其他语言--不管是否翻译，直接替换")
-	flag.StringVar(&apiPath, "api", "", "传入api路径，从文案系统获取翻译数据")
+	flag.StringVar(&filePath, "api", "", "传入api路径，从文案系统获取翻译数据")
 	flag.Parse()
 	
 	operation := os.Args[1]
@@ -31,8 +32,8 @@ func main() {
 		translate.ReplaceWithEn(filePath)
 	case "-ra":
 		translate.ReplaceAllWithEn(filePath)
-	// case "-api":
-	// 	translate.FromTransSystem(apiPath)
+	case "-api":
+		translate.FromTransSystem(filePath, "104407325.1157")
 	default: 
 		fmt.Println("没有对应操作")
 	}

@@ -1,26 +1,112 @@
 {
+    "ar_AE": {
+        "CoinEx大使": "CoinEx大使",
+        "CoinEx大使_0ecb": "CoinEx大使是CoinEx交易所的全球推广合作伙伴，协助参与交易所市场运营，共建全球业务生态。",
+        "大使介绍": "大使介绍",
+        "大使代理": "大使代理",
+        "大使风采": "大使风采",
+        "常见问题": "常见问题",
+        "我们诚挚邀请热爱_58d8": "我们诚挚邀请热爱区块链/数字货币行业、愿意参与CoinEx的成长发展，帮助CoinEx品牌建设与宣传的社区成员加入。",
+        "申请CoinEx_4282": "申请CoinEx大使"
+    },
     "en_US": {
-        "主动还币": "en1",
-        "保险基金@DEPRECATED@": "en2",
-        "强平还币": "en3",
-        "待还资产@DEPRECATED@": "en4"
+        "CoinEx大使": "CoinEx大使",
+        "CoinEx大使_0ecb": "CoinEx大使是CoinEx交易所的全球推广合作伙伴，协助参与交易所市场运营，共建全球业务生态。",
+        "大使介绍": "大使介绍",
+        "大使代理": "大使代理",
+        "大使风采": "大使风采",
+        "常见问题": "常见问题",
+        "我们诚挚邀请热爱_58d8": "我们诚挚邀请热爱区块链/数字货币行业、愿意参与CoinEx的成长发展，帮助CoinEx品牌建设与宣传的社区成员加入。",
+        "申请CoinEx_4282": "申请CoinEx大使"
+    },
+    "es_ES": {
+        "CoinEx大使": "CoinEx大使",
+        "CoinEx大使_0ecb": "CoinEx大使是CoinEx交易所的全球推广合作伙伴，协助参与交易所市场运营，共建全球业务生态。",
+        "大使介绍": "大使介绍",
+        "大使代理": "大使代理",
+        "大使风采": "大使风采",
+        "常见问题": "常见问题",
+        "我们诚挚邀请热爱_58d8": "我们诚挚邀请热爱区块链/数字货币行业、愿意参与CoinEx的成长发展，帮助CoinEx品牌建设与宣传的社区成员加入。",
+        "申请CoinEx_4282": "申请CoinEx大使"
+    },
+    "id_ID": {
+        "CoinEx大使": "Ambassadors",
+        "CoinEx大使_0ecb": "As a global partner of CoinEx, a CoinEx Ambassador should be deeply involved in the exchange's marketing operations and make joint efforts to create a global business ecosystem.",
+        "大使介绍": "About Ambassadors",
+        "大使代理": "About Agents",
+        "大使风采": "Ambassador Profiles",
+        "常见问题": "FAQ",
+        "我们诚挚邀请热爱_58d8": "If you are a big fan of the blockchain or cryptocurrency, willing to participate in the development, branding building and promotion of CoinEx, you are welcomed to join the CoinEx Ambassador team!",
+        "申请CoinEx_4282": "Apply for CoinEx Ambassador"
     },
     "ja_JP": {
-        "主动还币": "CETの保有量",
-        "保险基金@DEPRECATED@": "取引手数料",
-        "强平还币": "en3",
-        "待还资产@DEPRECATED@": "待还资产-japan"
+        "CoinEx大使": "CoinEx大使",
+        "CoinEx大使_0ecb": "CoinEx大使是CoinEx交易所的全球推广合作伙伴，协助参与交易所市场运营，共建全球业务生态。",
+        "大使介绍": "大使介绍",
+        "大使代理": "大使代理",
+        "大使风采": "大使风采",
+        "常见问题": "常见问题",
+        "我们诚挚邀请热爱_58d8": "我们诚挚邀请热爱区块链/数字货币行业、愿意参与CoinEx的成长发展，帮助CoinEx品牌建设与宣传的社区成员加入。",
+        "申请CoinEx_4282": "申请CoinEx大使"
     },
     "ko_KP": {
-        "主动还币": "en1",
-        "保险基金@DEPRECATED@": "VIP 레벨",
-        "强平还币": "VIP 수수료 안내",
-        "待还资产@DEPRECATED@": "거래 수수료"
+        "CoinEx大使": "CoinEx大使",
+        "CoinEx大使_0ecb": "CoinEx大使是CoinEx交易所的全球推广合作伙伴，协助参与交易所市场运营，共建全球业务生态。",
+        "大使介绍": "大使介绍",
+        "大使代理": "大使代理",
+        "大使风采": "大使风采",
+        "常见问题": "常见问题",
+        "我们诚挚邀请热爱_58d8": "我们诚挚邀请热爱区块链/数字货币行业、愿意参与CoinEx的成长发展，帮助CoinEx品牌建设与宣传的社区成员加入。",
+        "申请CoinEx_4282": "申请CoinEx大使"
+    },
+    "ru_KZ": {
+        "CoinEx大使": "Ambassadors",
+        "CoinEx大使_0ecb": "As a global partner of CoinEx, a CoinEx Ambassador should be deeply involved in the exchange's marketing operations and make joint efforts to create a global business ecosystem.",
+        "大使介绍": "About Ambassadors",
+        "大使代理": "About Agents",
+        "大使风采": "Ambassador Profiles",
+        "常见问题": "FAQ",
+        "我们诚挚邀请热爱_58d8": "If you are a big fan of the blockchain or cryptocurrency, willing to participate in the development, branding building and promotion of CoinEx, you are welcomed to join the CoinEx Ambassador team!",
+        "申请CoinEx_4282": "Apply for CoinEx Ambassador"
+    },
+    "tr_TR": {
+        "CoinEx大使": "Ambassadors",
+        "CoinEx大使_0ecb": "As a global partner of CoinEx, a CoinEx Ambassador should be deeply involved in the exchange's marketing operations and make joint efforts to create a global business ecosystem.",
+        "大使介绍": "About Ambassadors",
+        "大使代理": "About Agents",
+        "大使风采": "Ambassador Profiles",
+        "常见问题": "FAQ",
+        "我们诚挚邀请热爱_58d8": "If you are a big fan of the blockchain or cryptocurrency, willing to participate in the development, branding building and promotion of CoinEx, you are welcomed to join the CoinEx Ambassador team!",
+        "申请CoinEx_4282": "Apply for CoinEx Ambassador"
+    },
+    "vi_VN": {
+        "CoinEx大使": "Ambassadors",
+        "CoinEx大使_0ecb": "As a global partner of CoinEx, a CoinEx Ambassador should be deeply involved in the exchange's marketing operations and make joint efforts to create a global business ecosystem.",
+        "大使介绍": "About Ambassadors",
+        "大使代理": "About Agents",
+        "大使风采": "Ambassador Profiles",
+        "常见问题": "FAQ",
+        "我们诚挚邀请热爱_58d8": "If you are a big fan of the blockchain or cryptocurrency, willing to participate in the development, branding building and promotion of CoinEx, you are welcomed to join the CoinEx Ambassador team!",
+        "申请CoinEx_4282": "Apply for CoinEx Ambassador"
     },
     "zh_Hans_CN": {
-        "主动还币": "主动还币",
-        "保险基金@DEPRECATED@": "保险基金",
-        "强平还币": "强平还币",
-        "待还资产@DEPRECATED@": "待还资产-chinese"
+        "CoinEx大使": "CoinEx大使",
+        "CoinEx大使_0ecb": "CoinEx大使是CoinEx交易所的全球推广合作伙伴，协助参与交易所市场运营，共建全球业务生态。",
+        "大使介绍": "大使介绍",
+        "大使代理": "大使代理",
+        "大使风采": "大使风采",
+        "常见问题": "常见问题",
+        "我们诚挚邀请热爱_58d8": "我们诚挚邀请热爱区块链/数字货币行业、愿意参与CoinEx的成长发展，帮助CoinEx品牌建设与宣传的社区成员加入。",
+        "申请CoinEx_4282": "申请CoinEx大使"
+    },
+    "zh_Hant_HK": {
+        "CoinEx大使": "CoinEx大使",
+        "CoinEx大使_0ecb": "CoinEx大使是CoinEx交易所的全球推廣合作夥伴，協助參與交易所市場運營，共建全球業務生態。",
+        "大使介绍": "大使介紹",
+        "大使代理": "大使代理",
+        "大使风采": "大使風采",
+        "常见问题": "常見問題",
+        "我们诚挚邀请热爱_58d8": "我們誠摯邀請熱愛區塊鏈/數字貨幣行業、願意參與CoinEx的成長發展，幫助CoinEx品牌建設與宣傳的社區成員加入。",
+        "申请CoinEx_4282": "申請CoinEx大使"
     }
 }

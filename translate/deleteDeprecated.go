@@ -5,17 +5,13 @@ package translate
 
 import (
 	"fmt"
-	"io/ioutil"
-	"log"
 	"strings"
-	"encoding/json"
-	"bytes"
 
-	"inAction/fileUtil/util"
+	"inAction/trans/util"
 )
 
 func DeleteDeprecated(filePath string) {
-	fmt.Println("delete")
+	fmt.Println("---- delete deprecated ----")
 	langMap := util.JsonToMap(filePath)
 	// 遍历嵌套的map
 	for _, singleLangMap := range langMap {
@@ -27,19 +23,6 @@ func DeleteDeprecated(filePath string) {
 		}
 	}
 
-	resByte, err := json.Marshal(langMap)
-	if err != nil {
-		log.Fatalln(err)
-	}
-
-	// 格式化JSON
-	var formattedBytesBuffer bytes.Buffer
-	json.Indent(&formattedBytesBuffer, resByte, "", "    ")
-
-	err = ioutil.WriteFile(filePath, []byte(formattedBytesBuffer.String()), 0644)
-	if err != nil {
-		log.Fatalln(err)
-	} else {
-		fmt.Println("delete success...")
-	}
+	/* 把翻译的数据写回到多语言文件中 */
+	util.WriteFile(filePath, langMap)
 }

@@ -8,12 +8,12 @@ import (
 	"crypto/md5"
 	"encoding/hex"
 
-	"inAction/fileUtil/util"
+	"inAction/trans/util"
 )
 
 // 获取api数据，返回对应的struct类型的地址
 func GetTransData(apiPath string) *util.ResDataStruct {
-	var url = "http://trans.coinex.cc/api/trans/card/" + apiPath
+	var url = "http://trans.viabtc.com/api/trans/card/" + apiPath
 	fmt.Printf("Get data from: %s\n", url)
 	resp, err := http.Get(url)
 	if err != nil {
@@ -57,24 +57,54 @@ func GetMD5Text(text string) string {
 	return text
 } 
 
-func FromTransSystem(apiPath string) {
-	// 接口返回的翻译数据，转成结构体
-	tranStruct := GetTransData(apiPath)
 
-	// 多语言json文件转成map
-	langMap := util.JsonToMap("./asset/index.json")
-	langMapEn := langMap["en_US"]
-
-	// 遍历翻译数据slice
-	var tranSlice = tranStruct.Data.Trans
+// 翻译指定语言
+func trans(lang string, langMap util.LangType, tranSlice util.TransType) {
+	currentLangMap := langMap[lang]
 	for _, val := range tranSlice {
+		// fmt.Printf("%#v\n", val)
 		var cn = val.Text  // 中文
-		var en = val.EnUS  // 英文
+		var translatedText = "";  // 对应语言的翻译
+		switch lang {
+		/* case "en_US":
+			translatedText = val.EnUS */
+		case "es_ES":
+			translatedText = val.EsES
+		case "ja_JP":
+			translatedText = val.JaJP
+		case "ko_KP":
+			translatedText = val.KoKP
+		case "ru_KZ":
+			translatedText = val.RuKZ
+		}
 		var md5Text = GetMD5Text(cn)
-		if _, ok := langMapEn[md5Text]; ok {
-			fmt.Printf("%v\n", md5Text)
-			langMapEn[md5Text] = en;
+		if (len(translatedText) > 0) {
+			if _, ok := currentLangMap[md5Text]; ok {
+				// fmt.Printf("%v\n", md5Text)
+				currentLangMap[md5Text] = translatedText;
+			}
 		}
 	}
-	fmt.Printf("%v\n", langMapEn)
+}
+
+func FromTransSystem(filePath string, apiPath string) {
+	// 接口返回的翻译数据，转成结构体
+	tranStruct := GetTransData(apiPath)
+	var tranSlice = tranStruct.Data.Trans
+
+	// 多语言json文件转成map
+	// filePath = "./asset/demo.json"
+	langMap := util.JsonToMap(filePath)
+	
+	for key, _ := range langMap {
+		// fmt.Printf("%#v\n", key)
+		// 不是简体和繁体，则翻译
+		if (key != "zh_Hans_CN" && key != "zh_Hant_HK") {
+			trans(key, langMap, tranSlice);
+		}
+	}
+	
+
+	/* 把翻译的数据写回到多语言文件中 */
+	util.WriteFile(filePath, langMap)
 }

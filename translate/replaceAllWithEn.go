@@ -10,7 +10,7 @@ import (
 	"io/ioutil"
 	"bytes"
 
-	"inAction/fileUtil/util"
+	"inAction/trans/util"
 )
 
 func ReplaceAllWithEn(filePath string) {
