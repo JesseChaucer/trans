@@ -46,7 +46,7 @@ func GetMD5Text(text string) string {
 		h := md5.New()
 		h.Write([]byte(string(runeSlice)))
 		md5Str := hex.EncodeToString(h.Sum(nil))
-		
+
 		// 去除字符串中的空格
 		for key, val := range runeSlice {
 			if (string(val) == " ") {
@@ -68,8 +68,8 @@ func trans(lang string, langMap util.LangType, tranSlice util.TransType) {
 		var cn = val.Text  // 中文
 		var translatedText = "";  // 对应语言的翻译
 		switch lang {
-		/* case "en_US":
-			translatedText = val.EnUS */
+		case "en_US":
+			translatedText = val.EnUS
 		case "es_ES":
 			translatedText = val.EsES
 		case "ja_JP":
