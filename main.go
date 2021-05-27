@@ -14,13 +14,13 @@ func main1() {
 
 func main() {
 	// 从命令行获取参数
-	var operation string // 操作
-	var filePath string  // 文件路径
-	var apiPath string  // api路径
+	var operation string
+	var filePath string
+	var tranId string
 
 	flag.StringVar(&operation, "o", "", "操作")
 	flag.StringVar(&filePath, "f", "", "文件路径")
-	flag.StringVar(&apiPath, "api", "", "文案系统的api路径")
+	flag.StringVar(&tranId, "id", "", "文案系统的任务id")
 	flag.Parse()
 	
 
@@ -43,11 +43,11 @@ func main() {
 	// 从文案系统获取翻译数据
 	case "api":
 		// 如果未提供api路径
-		if (len(apiPath) <= 0) {
+		if (len(tranId) <= 0) {
 			fmt.Println("请指定api路径")
 			return;
 		}
-		translate.FromTransSystem(filePath, apiPath)  // eg: apiPath = "104407325.1157"
+		translate.FromTransSystem(filePath, tranId)  // eg: tranId = "104407325.1157"
 	default: 
 		fmt.Println("没有对应操作")
 	}

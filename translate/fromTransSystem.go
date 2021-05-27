@@ -12,8 +12,8 @@ import (
 )
 
 // 获取api数据，返回对应的struct类型的地址
-func GetTransData(apiPath string) *util.ResDataStruct {
-	var url = "http://trans.viabtc.com/api/trans/card/" + apiPath
+func GetTransData(tranId string) *util.ResDataStruct {
+	var url = "http://trans.viabtc.com/api/trans/card/" + tranId
 	fmt.Printf("Get data from: %s\n", url)
 	resp, err := http.Get(url)
 	if err != nil {
@@ -87,9 +87,9 @@ func trans(lang string, langMap util.LangType, tranSlice util.TransType) {
 	}
 }
 
-func FromTransSystem(filePath string, apiPath string) {
+func FromTransSystem(filePath string, tranId string) {
 	// 接口返回的翻译数据，转成结构体
-	tranStruct := GetTransData(apiPath)
+	tranStruct := GetTransData(tranId)
 	var tranSlice = tranStruct.Data.Trans
 
 	// 多语言json文件转成map
