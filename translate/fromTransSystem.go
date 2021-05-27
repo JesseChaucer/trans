@@ -42,16 +42,18 @@ func GetTransData(tranId string) *util.ResDataStruct {
 */
 func GetMD5Text(text string) string {
 	var runeSlice = []rune(text)
-	// 去除字符串中的空格
-	for key, val := range runeSlice {
-		if (string(val) == " ") {
-			runeSlice = append(runeSlice[:key], runeSlice[key+1:]...)
-		}
-	}
 	if len(runeSlice) > 8 {
 		h := md5.New()
 		h.Write([]byte(string(runeSlice)))
 		md5Str := hex.EncodeToString(h.Sum(nil))
+		
+		// 去除字符串中的空格
+		for key, val := range runeSlice {
+			if (string(val) == " ") {
+				runeSlice = append(runeSlice[:key], runeSlice[key+1:]...)
+			}
+		}
+
 		text = string(runeSlice[:8]) + "_" + md5Str[:4]
 	}
 	return text
