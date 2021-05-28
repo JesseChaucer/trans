@@ -11,14 +11,17 @@ func ProcessAllFile(pathname string, processFunc func(string)) error {
 	fmt.Printf("---- 当前目录：%s ----\n", pathname)
 	rd, err := ioutil.ReadDir(pathname)
 	for _, fi := range rd {
-		// 如果当前文件为目录，并且不以"."号开头（即不是隐藏文件）
+		/**
+		 * 1. 当前文件为目录
+		 * 2. 不以"."号开头（即不是隐藏文件）
+		 */
+		var currentFile = pathname + "/" + fi.Name()
 		if fi.IsDir() && !strings.HasPrefix(fi.Name(), ".") {
-			var subDir = pathname + "/" + fi.Name()
-			ProcessAllFile(subDir)
-		} else {
-			// 处理文件
-			// fmt.Println(fi.Name())
-			processFunc(fi.Name())
+			ProcessAllFile(currentFile, processFunc)
+		} else if strings.HasSuffix(fi.Name(), "message.json") {
+			// 如果文件名后缀为 message.json，则处理
+			// fmt.Println(currentFile)
+			processFunc(currentFile)
 		}
 	}
 	return err
