@@ -5,10 +5,6 @@ package translate
 
 import (
 	"fmt"
-	"encoding/json"
-	"log"
-	"io/ioutil"
-	"bytes"
 
 	"inAction/trans/util"
 )
@@ -23,19 +19,6 @@ func ReplaceAllWithEn(filePath string) {
 		}
 	}
 
-	resByte, err := json.Marshal(langMap)
-	if err != nil {
-		log.Fatalln(err)
-	}
-
-	// 格式化JSON
-	var formattedBytesBuffer bytes.Buffer
-	json.Indent(&formattedBytesBuffer, resByte, "", "    ")
-
-	err = ioutil.WriteFile(filePath, []byte(formattedBytesBuffer.String()), 0644)
-	if err != nil {
-		log.Fatalln(err)
-	} else {
-		fmt.Println("replace all success...")
-	}
+	/* 把翻译的数据写回到多语言文件中 */
+	util.WriteFile(filePath, langMap)
 }
