@@ -20,9 +20,10 @@ func ProcessAllFile(pathname string, processFunc func(string)) error {
 			ProcessAllFile(currentFile, processFunc)
 		} else if strings.HasSuffix(fi.Name(), "message.json") {
 			// 如果文件名后缀为 message.json，则处理
-			fmt.Printf("    当前文件：%s\n", currentFile)
+			fmt.Printf("    处理文件：%s\n", currentFile)
 			processFunc(currentFile)
 		}
 	}
+	fmt.Println()
 	return err
 }
