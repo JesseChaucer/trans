@@ -90,6 +90,7 @@ func trans(lang string, langMap util.LangType, tranSlice util.TransType) {
 }
 
 func FromTransSystem(filePath string, tranId string) {
+	fmt.Println("---- 用指定文案翻译指定文件 ----")
 	// 接口返回的翻译数据，转成结构体
 	tranStruct := GetTransData(tranId)
 	var tranSlice = tranStruct.Data.Trans

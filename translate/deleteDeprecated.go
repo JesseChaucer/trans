@@ -11,7 +11,7 @@ import (
 )
 
 func DeleteDeprecated(filePath string) {
-	fmt.Println("---- delete deprecated ----")
+	fmt.Println("---- 删除 @deprecated@ 字段 ----")
 	langMap := util.JsonToMap(filePath)
 	// 遍历嵌套的map
 	for _, singleLangMap := range langMap {

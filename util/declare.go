@@ -2,22 +2,16 @@ package util
 
 // 自定义命令行的帮助信息
 const HelpInfo = `
-A. 指定文件(-f)
-    trans -o r -f test.message.json
+1. 删除 @deprecated@ 字段
+    trans -d test.message.json
 
+2. 用英语替换其他语言 -- 只替换未翻译的字段(中文简体、繁体除外)
+    trans -r test.message.json
 
-B. 指定操作(-o)
-    1. (d): delete, 删除 @deprecated@ 字段
-    trans -o d 
+3. 用英语替换其他语言 -- 不管是否翻译，直接替换
+    trans -ra test.message.json
 
-    2. (r): replace, 用英语替换其他语言--只替换未翻译的字段(中文简体、繁体除外)
-    trans -o r
-
-    3. (ra): replace all, 用英语替换其他语言--不管是否翻译，直接替换
-    trans -o ra
-
-
-C. 指定文案id(-id)
+4. 用指定文案翻译指定文件
     trans -f test.message.json -id 104407325.1157
 `
 

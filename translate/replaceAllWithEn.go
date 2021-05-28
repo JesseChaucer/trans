@@ -14,7 +14,7 @@ import (
 )
 
 func ReplaceAllWithEn(filePath string) {
-	fmt.Println("replace all")
+	fmt.Println("---- 用英语替换其他语言 -- 不管是否翻译，直接替换 ----")
 	langMap := util.JsonToMap(filePath)
 	for key, _ := range langMap {
 		// 不是英语/简体汉语/繁体汉语，用英语替换
