@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"inAction/trans/util"
+	"inAction/trans/def"
 	"inAction/trans/translate"
 )
 
@@ -26,7 +26,7 @@ func main() {
 	flag.StringVar(&filePath, "f", "", "文件路径")
 	flag.StringVar(&tranId, "id", "", "文案系统的任务id")
 	flag.Usage = func() {
-        fmt.Print(util.HelpInfo)
+        fmt.Print(def.HelpInfo)
     }
 	flag.Parse()
 

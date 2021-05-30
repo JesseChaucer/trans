@@ -8,12 +8,13 @@ import (
 	"crypto/md5"
 	"encoding/hex"
 
+	"inAction/trans/def"
 	"inAction/trans/util"
 )
 
 // 获取api数据，返回对应的struct类型的地址
 func GetTransData(tranId string) *util.ResDataStruct {
-	var url = "http://trans.viabtc.com/api/trans/card/" + tranId
+	var url = def.Api + tranId
 	fmt.Printf("Get data from: %s\n", url)
 	resp, err := http.Get(url)
 	if err != nil {
