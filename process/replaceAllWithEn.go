@@ -1,7 +1,7 @@
 /**
  * 用英语替换其他语言
  */
-package translate
+package process
 
 import (
 	"fmt"

@@ -1,7 +1,7 @@
 /**
  * 删除 @deprecated@ 字段
  */
-package translate
+package process
 
 import (
 	"fmt"
@@ -10,7 +10,7 @@ import (
 	"inAction/trans/util"
 )
 
-func deleteFunc(filePath string) {
+func delFunc(filePath string) {
 	fmt.Println("---- 删除 @deprecated@ 字段 ----")
 	langMap := util.JsonToMap(filePath)
 	// 遍历嵌套的map
@@ -28,5 +28,5 @@ func deleteFunc(filePath string) {
 }
 
 func DeleteDeprecated(filePath string) {
-	util.ProcessAllFile(filePath, deleteFunc)
+	util.ProcessAllFile(filePath, delFunc)
 }

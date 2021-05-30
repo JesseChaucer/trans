@@ -6,12 +6,12 @@ import (
 	"os"
 
 	"inAction/trans/def"
-	"inAction/trans/translate"
+	"inAction/trans/process"
 )
 
 func main1() {
-	fmt.Printf("%v\n", translate.GetMD5Text("2. 被邀请人累计交易量包括现货交易、杠杆交易和合约交易。"))
-	// translate.DeleteDeprecated("./asset/index.json")
+	fmt.Printf("%v\n", process.GetMD5Text("2. 被邀请人累计交易量包括现货交易、杠杆交易和合约交易。"))
+	// process.DeleteDeprecated("./asset/index.json")
 }
 
 func main() {
@@ -32,7 +32,7 @@ func main() {
 
 	// 如果提供了文件路径和文案id
 	if len(filePath) > 0 && len(tranId) > 0 {
-		translate.FromTransSystem(filePath, tranId) // eg: tranId = "104407325.1157"
+		process.FromTransSystem(filePath, tranId) // eg: tranId = "104407325.1157"
 		return
 	}
 
@@ -42,13 +42,13 @@ func main() {
 		switch operation {
 			// 删除 @deprecated@ 字段
 			case "-d":
-				translate.DeleteDeprecated(filePath)
+				process.DeleteDeprecated(filePath)
 			// 用英语替换其他语言--只替换未翻译的字段(中文简体、繁体除外)
 			case "-r":
-				translate.ReplaceWithEn(filePath)
+				process.ReplaceWithEn(filePath)
 			// 用英语替换其他语言--不管是否翻译，直接替换
 			case "-ra":
-				translate.ReplaceAllWithEn(filePath)
+				process.ReplaceAllWithEn(filePath)
 			default:
 				fmt.Println("没有对应操作")
 			}
