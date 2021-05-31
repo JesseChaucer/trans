@@ -25,6 +25,6 @@ func WriteFile(filePath string, langMap LangType) {
 	if err != nil {
 		log.Fatalln(err)
 	} else {
-		fmt.Println("write success...")
+		fmt.Printf("%s\n\n", "结果：处理成功")
 	}
 }
