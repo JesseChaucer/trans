@@ -9,7 +9,7 @@ import (
 	"inAction/trans/util"
 )
 
-func ReplaceWithEn(filePath string) {
+func replaceFunc(filePath string) {
 	fmt.Println("操作：用英语替换其他语言 -- 只替换未翻译的字段(中文简体、繁体除外)")
 	
 	langMap := util.JsonToMap(filePath)
@@ -31,4 +31,8 @@ func ReplaceWithEn(filePath string) {
 
 	/* 把翻译的数据写回到多语言文件中 */
 	util.WriteFile(filePath, langMap)
+}
+
+func ReplaceWithEn(filePath string) {
+	util.ProcessAllFile(filePath, replaceFunc)
 }
