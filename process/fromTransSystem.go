@@ -64,7 +64,7 @@ func trans(lang string, langMap util.LangType, tranSlice util.TransType) {
 	}
 }
 
-func useTransFunc(filePath string, tranId string) {
+/* func useTransFunc(filePath string, tranId string) {
 	fmt.Println("---- 用指定文案翻译指定文件 ----")
 
 	// 接口返回的翻译数据，转成结构体
@@ -83,9 +83,9 @@ func useTransFunc(filePath string, tranId string) {
 		}
 	}
 
-	/* 把翻译的数据写回到多语言文件中 */
+	// 把翻译的数据写回到多语言文件中
 	util.WriteFile(filePath, langMap)
-}
+} */
 
 func FromTransSystem(filePath string, tranId string) {
 	/* 定义处理文件的函数 */
