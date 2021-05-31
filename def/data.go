@@ -5,6 +5,7 @@ package def
 const HelpInfo = `
 1. 删除 @deprecated@ 字段
     trans -d test.message.json
+    trans -d dir/
 
 2. 用英语替换其他语言 -- 只替换未翻译的字段(中文简体、繁体除外)
     trans -r test.message.json
