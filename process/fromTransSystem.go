@@ -35,8 +35,13 @@ func getTransData(tranId string) *util.ResDataStruct {
 }
 
 
-// 翻译指定语言
-func trans(lang string, langMap util.LangType, tranSlice util.TransType) {
+/**
+ * 翻译指定语言
+ * 返回值表示文件是否有修改
+*/
+func trans(lang string, langMap util.LangType, tranSlice util.TransType) bool {
+	var flag bool = false
+
 	currentLangMap := langMap[lang]
 	for _, val := range tranSlice {
 		// fmt.Printf("%#v\n", val)
@@ -59,9 +64,11 @@ func trans(lang string, langMap util.LangType, tranSlice util.TransType) {
 			if _, ok := currentLangMap[md5Text]; ok {
 				// fmt.Printf("%v\n", md5Text)
 				currentLangMap[md5Text] = translatedText
+				flag = true
 			}
 		}
 	}
+	return flag
 }
 
 /* func useTransFunc(filePath string, tranId string) {
@@ -88,6 +95,8 @@ func trans(lang string, langMap util.LangType, tranSlice util.TransType) {
 } */
 
 func FromTransSystem(filePath string, tranId string) {
+	var flag bool = false
+
 	// 接口返回的翻译数据，转成结构体
 	tranStruct := getTransData(tranId)
 	var tranSlice = tranStruct.Data.Trans
@@ -103,12 +112,16 @@ func FromTransSystem(filePath string, tranId string) {
 			// fmt.Printf("%#v\n", key)
 			// 不是简体和繁体，则翻译
 			if key != "zh_Hans_CN" && key != "zh_Hant_HK" {
-				trans(key, langMap, tranSlice)
+				flag = trans(key, langMap, tranSlice)
 			}
 		}
 
-		// 把翻译的数据写回到多语言文件中
-		util.WriteFile(filePath, langMap)
+		if flag {
+			// 把翻译的数据写回到多语言文件中
+			util.WriteFile(filePath, langMap)
+		} else {
+			fmt.Println("该文件均需处理")
+		}
 	}
 
 	util.ProcessAllFile(filePath, processFunc)

@@ -11,6 +11,8 @@ import (
 
 func replaceFunc(filePath string) {
 	fmt.Println("操作：用英语替换其他语言 -- 只替换未翻译的字段(中文简体、繁体除外)")
+
+	var flag bool = false;
 	
 	langMap := util.JsonToMap(filePath)
 	// 中文json
@@ -24,13 +26,18 @@ func replaceFunc(filePath string) {
 				// 如果未翻译(是中文)，则替换成英文
 				if (val == cn[field]) {
 					langMap[lang][field] = us[field]
+					flag = true
 				}
 			}
 		}
 	}
 
-	/* 把翻译的数据写回到多语言文件中 */
-	util.WriteFile(filePath, langMap)
+	if flag {
+		// 把翻译的数据写回到多语言文件中
+		util.WriteFile(filePath, langMap)
+	} else {
+		fmt.Println("该文件均需处理")
+	}
 }
 
 func ReplaceWithEn(filePath string) {
