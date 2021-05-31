@@ -22,14 +22,14 @@ func getTransData(tranId string) *util.ResDataStruct {
 	defer resp.Body.Close()
 
 	body, err := ioutil.ReadAll(resp.Body)
-	fmt.Println(resp.StatusCode)
+	// fmt.Println(resp.StatusCode)
 	if resp.StatusCode == 200 {
-		fmt.Printf("====请求成功====\n\n")
+		fmt.Printf("状态：请求翻译系统文案成功\n\n")
 		var jsonStr = string(body)
 		resStructPointer := util.ResJsonToStruct(jsonStr)
 		return resStructPointer
 	} else {
-		fmt.Println("请求api数据失败")
+		fmt.Println("状态：请求翻译系统文案失败")
 		return nil
 	}
 }
@@ -88,13 +88,13 @@ func trans(lang string, langMap util.LangType, tranSlice util.TransType) {
 } */
 
 func FromTransSystem(filePath string, tranId string) {
+	// 接口返回的翻译数据，转成结构体
+	tranStruct := getTransData(tranId)
+	var tranSlice = tranStruct.Data.Trans
+
 	/* 定义处理文件的函数 */
 	var processFunc = func(filePath string) {
 		fmt.Println("操作：用指定文案翻译指定文件")
-
-		// 接口返回的翻译数据，转成结构体
-		tranStruct := getTransData(tranId)
-		var tranSlice = tranStruct.Data.Trans
 
 		// 多语言json文件转成map
 		langMap := util.JsonToMap(filePath)
@@ -107,8 +107,9 @@ func FromTransSystem(filePath string, tranId string) {
 			}
 		}
 
-		/* 把翻译的数据写回到多语言文件中 */
+		// 把翻译的数据写回到多语言文件中
 		util.WriteFile(filePath, langMap)
 	}
+
 	util.ProcessAllFile(filePath, processFunc)
 }
