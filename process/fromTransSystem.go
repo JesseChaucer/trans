@@ -95,7 +95,7 @@ func trans(lang string, langMap util.LangType, tranSlice util.TransType) bool {
 } */
 
 func FromTransSystem(filePath string, tranId string) {
-	fmt.Println("操作：用指定文案翻译指定文件")
+	fmt.Printf("操作：用指定文案翻译指定文件\n\n")
 
 	var flag bool = false
 

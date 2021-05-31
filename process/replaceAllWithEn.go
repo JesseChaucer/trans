@@ -23,7 +23,7 @@ func replaceAllFunc(filePath string) {
 }
 
 func ReplaceAllWithEn(filePath string) {
-	fmt.Println("操作：用英语替换其他语言 -- 不管是否翻译，直接替换")
+	fmt.Printf("操作：用英语替换其他语言 -- 不管是否翻译，直接替换\n\n")
 
 	util.ProcessAllFile(filePath, replaceAllFunc)
 }

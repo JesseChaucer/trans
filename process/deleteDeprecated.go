@@ -38,7 +38,7 @@ func delFunc(filePath string) {
 }
 
 func DeleteDeprecated(filePath string) {
-	fmt.Println("操作：删除 @deprecated@ 字段")
+	fmt.Printf("操作：删除 @deprecated@ 字段\n\n")
 
 	util.ProcessAllFile(filePath, delFunc)
 }
