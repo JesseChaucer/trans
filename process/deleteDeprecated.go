@@ -15,10 +15,6 @@ func delFunc(filePath string) {
 
 	langMap := util.JsonToMap(filePath)
 
-	fmt.Printf("%v", langMap)
-	fmt.Println("del func ----")
-
-
 	if langMap == nil {
 		return
 	}
@@ -32,9 +28,6 @@ func delFunc(filePath string) {
 			}
 		}
 	}
-
-	fmt.Println("--------")
-	fmt.Printf("%#v\n", langMap)
 
 	// 把翻译的数据写回到多语言文件中
 	util.WriteFile(filePath, langMap)
