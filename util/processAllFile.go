@@ -48,7 +48,7 @@ func ProcessAllFile(filePath string, processFunc func(string)) {
 		}
 	} else if strings.HasSuffix(myFileInfo.Name(), "message.json") {
 		// 如果文件名后缀为 message.json，则处理
-		fmt.Printf("    处理文件：%s\n", filePath)
+		fmt.Printf("处理文件：%s\n", filePath)
 		processFunc(filePath)
 	}
 }
