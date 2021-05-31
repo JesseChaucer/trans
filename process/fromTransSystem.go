@@ -2,8 +2,6 @@
 package process
 
 import (
-	"crypto/md5"
-	"encoding/hex"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -36,29 +34,6 @@ func getTransData(tranId string) *util.ResDataStruct {
 	}
 }
 
-/**
- * 获取字符串的md5加密后的字符串
- * 如："7×24小时 专家支持" --> "7×24小时专家_0ecc"
- * 含中文字符，要先转成[]rune
- */
-func GetMD5Text(text string) string {
-	var runeSlice = []rune(text)
-	if len(runeSlice) > 8 {
-		h := md5.New()
-		h.Write([]byte(string(runeSlice)))
-		md5Str := hex.EncodeToString(h.Sum(nil))
-
-		// 去除字符串中的空格
-		for key, val := range runeSlice {
-			if string(val) == " " {
-				runeSlice = append(runeSlice[:key], runeSlice[key+1:]...)
-			}
-		}
-
-		text = string(runeSlice[:8]) + "_" + md5Str[:4]
-	}
-	return text
-}
 
 // 翻译指定语言
 func trans(lang string, langMap util.LangType, tranSlice util.TransType) {
@@ -79,7 +54,7 @@ func trans(lang string, langMap util.LangType, tranSlice util.TransType) {
 		case "ru_KZ":
 			translatedText = val.RuKZ
 		}
-		var md5Text = GetMD5Text(cn)
+		var md5Text = util.GetMD5Text(cn)
 		if len(translatedText) > 0 {
 			if _, ok := currentLangMap[md5Text]; ok {
 				// fmt.Printf("%v\n", md5Text)
