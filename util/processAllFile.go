@@ -9,18 +9,13 @@ import (
 
 // 处理文件 & 目录
 func ProcessAllFile(filePath string, processFunc func(string)) {
-	myFile, err := os.OpenFile(
-		filePath,
-		os.O_WRONLY|os.O_TRUNC|os.O_CREATE,
-		0666,
-	)
+	myFileInfo, err := os.Stat(filePath)
 
 	if err != nil {
-		fmt.Printf("open error: %v\n", err)
+		fmt.Printf("%v\n", err)
 		return
 	}
 
-	var myFileInfo, _ = myFile.Stat()
 	// 如果是目录
 	if myFileInfo.IsDir() {
 		// 遍历文件夹下的所有文件，并处理
