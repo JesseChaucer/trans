@@ -6,14 +6,8 @@ import (
 	"os"
 
 	"inAction/trans/def"
-	"inAction/trans/util"
 	"inAction/trans/process"
 )
-
-func main1() {
-	fmt.Printf("%v\n", util.GetMD5Text("2. 被邀请人累计交易量包括现货交易、杠杆交易和合约交易。"))
-	// process.DeleteDeprecated("./asset/index.json")
-}
 
 func main() {
 	// 从命令行获取参数
