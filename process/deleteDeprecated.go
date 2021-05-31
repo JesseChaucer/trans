@@ -33,7 +33,7 @@ func delFunc(filePath string) {
 		// 把翻译的数据写回到多语言文件中
 		util.WriteFile(filePath, langMap)
 	} else {
-		fmt.Printf("该文件均需处理\n\n")
+		fmt.Printf("结果：无处理\n\n")
 	}
 }
 
