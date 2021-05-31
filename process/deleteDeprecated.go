@@ -11,8 +11,6 @@ import (
 )
 
 func delFunc(filePath string) {
-	fmt.Println("操作：删除 @deprecated@ 字段")
-
 	langMap := util.JsonToMap(filePath)
 
 	if langMap == nil {
@@ -40,5 +38,7 @@ func delFunc(filePath string) {
 }
 
 func DeleteDeprecated(filePath string) {
+	fmt.Println("操作：删除 @deprecated@ 字段")
+
 	util.ProcessAllFile(filePath, delFunc)
 }
