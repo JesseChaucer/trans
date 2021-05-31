@@ -19,18 +19,24 @@ func delFunc(filePath string) {
 		return
 	}
 
+	var flag bool = false;
 	// 遍历嵌套的map
 	for _, singleLangMap := range langMap {
 		for key, _ := range singleLangMap {
 			// 删除包含 @deprecated@ 的键值对
 			if strings.Contains(key, "@DEPRECATED@") {
+				flag = true;
 				delete(singleLangMap, key)
 			}
 		}
 	}
 
-	// 把翻译的数据写回到多语言文件中
-	util.WriteFile(filePath, langMap)
+	if flag {
+		// 把翻译的数据写回到多语言文件中
+		util.WriteFile(filePath, langMap)
+	} else {
+		fmt.Println("该文件均需处理")
+	}
 }
 
 func DeleteDeprecated(filePath string) {
