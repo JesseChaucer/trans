@@ -36,14 +36,14 @@ func ProcessAllFile(filePath string, processFunc func(string)) {
 			var newPath = filePath + "/" + fileName
 			if fi.IsDir() && !strings.HasPrefix(fileName, ".") {
 				ProcessAllFile(newPath, processFunc)
-			} else if strings.HasSuffix(fileName, "message.json") {
-				// 如果文件名后缀为 message.json，则处理
+			} else if strings.HasSuffix(fileName, "messages.json") {
+				// 如果文件名后缀为 messages.json，则处理
 				fmt.Printf("文件：%s\n", newPath)
 				processFunc(newPath)
 			}
 		}
-	} else if strings.HasSuffix(myFileInfo.Name(), "message.json") {
-		// 如果文件名后缀为 message.json，则处理
+	} else if strings.HasSuffix(myFileInfo.Name(), "messages.json") {
+		// 如果文件名后缀为 messages.json，则处理
 		fmt.Printf("文件：%s\n", filePath)
 		processFunc(filePath)
 	}
