@@ -112,7 +112,10 @@ func FromTransSystem(filePath string, tranId string) {
 			// fmt.Printf("%#v\n", key)
 			// 不是简体和繁体，则翻译
 			if key != "zh_Hans_CN" && key != "zh_Hant_HK" {
-				flag = trans(key, langMap, tranSlice)
+				var res = trans(key, langMap, tranSlice)
+				if (res) {
+					flag = true;
+				}
 			}
 		}
 
