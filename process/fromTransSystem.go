@@ -58,6 +58,8 @@ func trans(lang string, langMap util.LangType, tranSlice util.TransType) bool {
 			translatedText = val.KoKP
 		case "ru_KZ":
 			translatedText = val.RuKZ
+		case "fa_IR": // 波斯语
+			translatedText = val.FaIR
 		}
 		var md5Text = util.GetMD5Text(cn)
 		if len(translatedText) > 0 {
