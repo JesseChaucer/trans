@@ -17,6 +17,7 @@ func main() {
 	flag.StringVar(&filePath, "d", "", "delete")
 	flag.StringVar(&filePath, "r", "", "replace")
 	flag.StringVar(&filePath, "ra", "", "replace all")
+	flag.StringVar(&filePath, "g", "", "get untranslated text")
 
 	flag.StringVar(&filePath, "f", "", "文件路径")
 	flag.StringVar(&tranId, "id", "", "文案系统的任务id")
@@ -44,6 +45,8 @@ func main() {
 			// 用英语替换其他语言--不管是否翻译，直接替换
 			case "-ra":
 				process.ReplaceAllWithEn(filePath)
+			case "-g":
+				process.GetUntransText(filePath)
 			default:
 				fmt.Println("没有对应操作")
 			}

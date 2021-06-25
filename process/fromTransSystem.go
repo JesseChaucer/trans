@@ -60,7 +60,14 @@ func trans(lang string, langMap util.LangType, tranSlice util.TransType) bool {
 			translatedText = val.RuKZ
 		case "fa_IR": // 波斯语
 			translatedText = val.FaIR
+		case "id_ID": // 印度尼西亚语
+			translatedText = val.IdID
+		case "tr_TR": // 土耳其语
+			translatedText = val.TrTR
+		case "vi_VN": // 越南语
+			translatedText = val.ViVN
 		}
+		
 		var md5Text = util.GetMD5Text(cn)
 		if len(translatedText) > 0 {
 			if _, ok := currentLangMap[md5Text]; ok {
