@@ -11,7 +11,7 @@ import (
 )
 
 // 获取api数据，返回对应的struct类型的地址
-func getTransData(tranId string) *util.ResDataStruct {
+func getTransData(tranId string) *def.ResDataStruct {
 	var url = def.Api + tranId
 	fmt.Printf("Get data from: %s\n", url)
 	resp, err := http.Get(url)
@@ -39,7 +39,7 @@ func getTransData(tranId string) *util.ResDataStruct {
  * 翻译指定语言
  * 返回值表示文件是否有修改
 */
-func trans(lang string, langMap util.LangType, tranSlice util.TransType) bool {
+func trans(lang string, langMap def.LangType, tranSlice def.TransType) bool {
 	var flag bool = false
 
 	currentLangMap := langMap[lang]
@@ -48,6 +48,8 @@ func trans(lang string, langMap util.LangType, tranSlice util.TransType) bool {
 		var cn = val.Text       // 中文
 		var translatedText = "" // 对应语言的翻译
 		switch lang {
+		/* case "id_ID": // 印度尼西亚语
+			translatedText = val.IdID */
 		case "en_US":
 			translatedText = val.EnUS
 		case "es_ES":
@@ -67,11 +69,11 @@ func trans(lang string, langMap util.LangType, tranSlice util.TransType) bool {
 		case "vi_VN": // 越南语
 			translatedText = val.ViVN
 		}
-		
+
 		var md5Text = util.GetMD5Text(cn)
 		if len(translatedText) > 0 {
 			if _, ok := currentLangMap[md5Text]; ok {
-				// fmt.Printf("%v\n", md5Text)
+				// fmt.Printf("%v = %v\n", md5Text, translatedText)
 				currentLangMap[md5Text] = translatedText
 				flag = true
 			}

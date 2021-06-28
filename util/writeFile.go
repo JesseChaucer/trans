@@ -9,9 +9,11 @@ import (
 	"log"
 	"encoding/json"
 	"bytes"
+
+	"inAction/trans/def"
 )
 
-func WriteFile(filePath string, langMap LangType) {
+func WriteFile(filePath string, langMap def.LangType) {
 	resByte, err := json.Marshal(langMap)
 	if err != nil {
 		log.Fatalln(err)

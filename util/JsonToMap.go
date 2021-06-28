@@ -7,9 +7,11 @@ import (
 	"log"
 	"io/ioutil"
 	"encoding/json"
+
+	"inAction/trans/def"
 )
 
-func JsonToMap(file string) LangType {
+func JsonToMap(file string) def.LangType {
 	// 读取 json 文件
 	jsonByte, err1 := ioutil.ReadFile(file)
 	if err1 != nil {
@@ -17,7 +19,7 @@ func JsonToMap(file string) LangType {
 		return nil
 	}
 
-	var langMap LangType
+	var langMap def.LangType
 	err2 := json.Unmarshal(jsonByte, &langMap)
 	if err2 != nil {
 		log.Fatal(err2)
