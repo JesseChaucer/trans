@@ -10,6 +10,11 @@ import (
 )
 
 func main() {
+	if len(os.Args) < 2 {
+		fmt.Printf("请使用 -h 选项参考帮助文档。\n")
+		return
+	}
+	
 	// 从命令行获取参数
 	var filePath string
 	var tranId string
