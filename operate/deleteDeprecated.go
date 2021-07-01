@@ -1,7 +1,7 @@
 /**
  * 删除 @deprecated@ 字段
  */
-package process
+package operate
 
 import (
 	"fmt"

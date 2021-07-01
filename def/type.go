@@ -17,6 +17,7 @@ type TransType []struct {
 	IdID string `json:"id_ID"`  // 印度尼西亚语
 	TrTR string `json:"tr_TR"`  // 土耳其语
 	ViVN string `json:"vi_VN"`  // 越南语
+	ArAE string `json:"ar_AE"`  // 阿拉伯
 }
 
 // 接口返回的数据结构

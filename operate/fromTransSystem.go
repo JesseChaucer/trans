@@ -1,5 +1,5 @@
 // 从文案系统获取翻译数据
-package process
+package operate
 
 import (
 	"fmt"
@@ -48,9 +48,9 @@ func trans(lang string, langMap def.LangType, tranSlice def.TransType) bool {
 		var cn = val.Text       // 中文
 		var translatedText = "" // 对应语言的翻译
 		switch lang {
-		/* case "id_ID": // 印度尼西亚语
-			translatedText = val.IdID */
 		case "en_US":
+			translatedText = val.EnUS
+		/* case "en_US":
 			translatedText = val.EnUS
 		case "es_ES":
 			translatedText = val.EsES
@@ -68,6 +68,8 @@ func trans(lang string, langMap def.LangType, tranSlice def.TransType) bool {
 			translatedText = val.TrTR
 		case "vi_VN": // 越南语
 			translatedText = val.ViVN
+		case "ar_AE": // 阿拉伯
+			translatedText = val.ArAE */
 		}
 
 		var md5Text = util.GetMD5Text(cn)

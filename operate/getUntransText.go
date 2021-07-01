@@ -1,7 +1,7 @@
 /**
  * 提取未来翻译的文案
  */
-package process
+package operate
 
 import (
 	"fmt"
