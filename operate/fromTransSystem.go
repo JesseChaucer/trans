@@ -10,6 +10,9 @@ import (
 	"inAction/trans/util"
 )
 
+// 定义全局变量
+var tranSlice def.TransType
+
 // 获取api数据，返回对应的struct类型的地址
 func getTransData(tranId string) *def.ResDataStruct {
 	var url = def.Api + tranId
@@ -34,12 +37,11 @@ func getTransData(tranId string) *def.ResDataStruct {
 	}
 }
 
-
 /**
  * 翻译指定语言
  * 返回值表示文件是否有修改
-*/
-func trans(lang string, langMap def.LangType, tranSlice def.TransType) bool {
+ */
+func transSpecifiedLang(lang string, langMap def.LangType) bool {
 	var flag bool = false
 
 	currentLangMap := langMap[lang]
@@ -50,26 +52,26 @@ func trans(lang string, langMap def.LangType, tranSlice def.TransType) bool {
 		switch lang {
 		case "en_US":
 			translatedText = val.EnUS
-		/* case "en_US":
-			translatedText = val.EnUS
-		case "es_ES":
-			translatedText = val.EsES
-		case "ja_JP":
-			translatedText = val.JaJP
-		case "ko_KP":
-			translatedText = val.KoKP
-		case "ru_KZ":
-			translatedText = val.RuKZ
-		case "fa_IR": // 波斯语
-			translatedText = val.FaIR
-		case "id_ID": // 印度尼西亚语
-			translatedText = val.IdID
-		case "tr_TR": // 土耳其语
-			translatedText = val.TrTR
-		case "vi_VN": // 越南语
-			translatedText = val.ViVN
-		case "ar_AE": // 阿拉伯
-			translatedText = val.ArAE */
+			/* case "en_US":
+				translatedText = val.EnUS
+			case "es_ES":
+				translatedText = val.EsES
+			case "ja_JP":
+				translatedText = val.JaJP
+			case "ko_KP":
+				translatedText = val.KoKP
+			case "ru_KZ":
+				translatedText = val.RuKZ
+			case "fa_IR": // 波斯语
+				translatedText = val.FaIR
+			case "id_ID": // 印度尼西亚语
+				translatedText = val.IdID
+			case "tr_TR": // 土耳其语
+				translatedText = val.TrTR
+			case "vi_VN": // 越南语
+				translatedText = val.ViVN
+			case "ar_AE": // 阿拉伯
+				translatedText = val.ArAE */
 		}
 
 		var md5Text = util.GetMD5Text(cn)
@@ -84,61 +86,37 @@ func trans(lang string, langMap def.LangType, tranSlice def.TransType) bool {
 	return flag
 }
 
-/* func useTransFunc(filePath string, tranId string) {
-	fmt.Println("---- 用指定文案翻译指定文件 ----")
-
-	// 接口返回的翻译数据，转成结构体
-	tranStruct := getTransData(tranId)
-	var tranSlice = tranStruct.Data.Trans
-
+/* 定义处理文件的函数 */
+func processFunc(filePath string) {
+	var flag bool = false
 	// 多语言json文件转成map
-	// filePath = "./asset/demo.json"
 	langMap := util.JsonToMap(filePath)
 
 	for key, _ := range langMap {
 		// fmt.Printf("%#v\n", key)
 		// 不是简体和繁体，则翻译
 		if key != "zh_Hans_CN" && key != "zh_Hant_HK" {
-			trans(key, langMap, tranSlice)
+			var res = transSpecifiedLang(key, langMap)
+			if res {
+				flag = true
+			}
 		}
 	}
 
-	// 把翻译的数据写回到多语言文件中
-	util.WriteFile(filePath, langMap)
-} */
+	if flag {
+		// 把翻译的数据写回到多语言文件中
+		util.WriteFile(filePath, langMap)
+	} else {
+		fmt.Printf("结果：无处理\n\n")
+	}
+}
 
 func FromTransSystem(filePath string, tranId string) {
 	fmt.Printf("操作：用指定文案翻译指定文件\n\n")
 
-	var flag bool = false
-
 	// 接口返回的翻译数据，转成结构体
 	tranStruct := getTransData(tranId)
-	var tranSlice = tranStruct.Data.Trans
-
-	/* 定义处理文件的函数 */
-	var processFunc = func(filePath string) {
-		// 多语言json文件转成map
-		langMap := util.JsonToMap(filePath)
-
-		for key, _ := range langMap {
-			// fmt.Printf("%#v\n", key)
-			// 不是简体和繁体，则翻译
-			if key != "zh_Hans_CN" && key != "zh_Hant_HK" {
-				var res = trans(key, langMap, tranSlice)
-				if (res) {
-					flag = true;
-				}
-			}
-		}
-
-		if flag {
-			// 把翻译的数据写回到多语言文件中
-			util.WriteFile(filePath, langMap)
-		} else {
-			fmt.Printf("结果：无处理\n\n")
-		}
-	}
+	tranSlice = tranStruct.Data.Trans
 
 	util.ProcessAllFile(filePath, processFunc)
 }

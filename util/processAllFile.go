@@ -32,12 +32,12 @@ func processDir(filePath string) {
 	}
 
 	for _, fi := range rd {
+		var fileName = fi.Name()
+		var newPath = filePath + "/" + fileName
 		/**
 		* 1. 当前文件为目录
 		* 2. 不以"."号开头（即不是隐藏文件）
 		 */
-		var fileName = fi.Name()
-		var newPath = filePath + "/" + fileName
 		if fi.IsDir() && !strings.HasPrefix(fileName, ".") {
 			ProcessAllFile(newPath, processFunc)
 		} else {
