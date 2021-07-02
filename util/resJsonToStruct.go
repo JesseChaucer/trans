@@ -9,9 +9,9 @@ import (
 )
 
 // json str 转 struct
-func ResJsonToStruct(jsonStr string) *def.ResDataStruct {
+func ResJsonToStruct(jsonByte []byte) *def.ResDataStruct {
 	var resStruct def.ResDataStruct
-		err := json.Unmarshal([]byte(jsonStr), &resStruct)
+		err := json.Unmarshal(jsonByte, &resStruct)
 		if err != nil {
 			fmt.Println(err)
 			return nil

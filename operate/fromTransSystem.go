@@ -28,8 +28,7 @@ func getTransData(tranId string) *def.ResDataStruct {
 	// fmt.Println(resp.StatusCode)
 	if resp.StatusCode == 200 {
 		fmt.Printf("状态：请求翻译系统文案成功\n\n")
-		var jsonStr = string(body)
-		resStructPointer := util.ResJsonToStruct(jsonStr)
+		resStructPointer := util.ResJsonToStruct(body)
 		return resStructPointer
 	} else {
 		fmt.Println("状态：请求翻译系统文案失败")
