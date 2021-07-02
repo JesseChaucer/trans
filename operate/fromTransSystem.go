@@ -50,9 +50,9 @@ func transSpecifiedLang(lang string, langMap def.LangType) bool {
 		var cn = val.Text       // 中文
 		var translatedText = "" // 对应语言的翻译
 		switch lang {
-		case "en_US":
-			translatedText = val.EnUS
-			/* case "en_US":
+		/* case "en_US":
+			translatedText = val.EnUS */
+			case "en_US":
 				translatedText = val.EnUS
 			case "es_ES":
 				translatedText = val.EsES
@@ -71,7 +71,7 @@ func transSpecifiedLang(lang string, langMap def.LangType) bool {
 			case "vi_VN": // 越南语
 				translatedText = val.ViVN
 			case "ar_AE": // 阿拉伯
-				translatedText = val.ArAE */
+				translatedText = val.ArAE
 		}
 
 		var md5Text = util.GetMD5Text(cn)

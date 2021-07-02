@@ -10,8 +10,8 @@ import (
 )
 
 func replaceCnFunc(filePath string) {
-	var flag bool = false;
-	
+	var flag bool = false
+
 	langMap := util.JsonToMap(filePath)
 	// 中文json
 	cn := langMap["zh_Hans_CN"]
@@ -19,18 +19,21 @@ func replaceCnFunc(filePath string) {
 	// us := langMap["en_US"]
 	for lang, _ := range langMap {
 		// 用中文替换指定语言
-		// if (lang != "en_US" && lang != "zh_Hans_CN" && lang != "zh_Hant_HK") {
-		if (lang == "ja_JP" || lang == "id_ID" || lang == "vi_VN" || lang == "tr_TR" || lang == "ar_AE") {
-			for field, val := range langMap[lang] {
-				// 如果未翻译(是英文)，则替换成中文
-				/* if (val == us[field]) {
-					langMap[lang][field] = cn[field]
-					flag = true
-				} */
-				// 直接替换成中文
-				if (len(val) > 0) {
-					langMap[lang][field] = cn[field]
-					flag = true
+		// var excludeLangSlice = []string{"en_US", "zh_Hans_CN", "zh_Hant_HK"}
+		var includeLangSlice = []string{"ja_JP", "id_ID", "vi_VN", "tr_TR", "ar_AE"}
+		for _, includeLang := range includeLangSlice {
+			if lang == includeLang {
+				for field, val := range langMap[lang] {
+					// 如果未翻译(是英文)，则替换成中文
+					/* if (val == us[field]) {
+						langMap[lang][field] = cn[field]
+						flag = true
+					} */
+					// 直接替换成中文
+					if len(val) > 0 {
+						langMap[lang][field] = cn[field]
+						flag = true
+					}
 				}
 			}
 		}

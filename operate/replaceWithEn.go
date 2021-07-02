@@ -10,8 +10,8 @@ import (
 )
 
 func replaceFunc(filePath string) {
-	var flag bool = false;
-	
+	var flag bool = false
+
 	langMap := util.JsonToMap(filePath)
 	// 中文json
 	cn := langMap["zh_Hans_CN"]
@@ -19,12 +19,15 @@ func replaceFunc(filePath string) {
 	us := langMap["en_US"]
 	for lang, _ := range langMap {
 		// 不是英语/简体汉语/繁体汉语，用英语替换
-		if (lang != "en_US" && lang != "zh_Hans_CN" && lang != "zh_Hant_HK") {
-			for field, val := range langMap[lang] {
-				// 如果未翻译(是中文)，则替换成英文
-				if (val == cn[field]) {
-					langMap[lang][field] = us[field]
-					flag = true
+		var excludeLangSlice = []string{"en_US", "zh_Hans_CN", "zh_Hant_HK"}
+		for _, excludeLang := range excludeLangSlice {
+			if lang != excludeLang {
+				for field, val := range langMap[lang] {
+					// 如果未翻译(是中文)，则替换成英文
+					if val == cn[field] {
+						langMap[lang][field] = us[field]
+						flag = true
+					}
 				}
 			}
 		}
