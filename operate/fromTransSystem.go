@@ -49,8 +49,9 @@ func transSpecifiedLang(lang string, langMap def.LangType) bool {
 		var cn = val.Text       // 中文
 		var translatedText = "" // 对应语言的翻译
 		switch lang {
-		/* case "en_US":
-			translatedText = val.EnUS */
+			/* case "ko_KP":
+				translatedText = val.KoKP */
+
 			case "en_US":
 				translatedText = val.EnUS
 			case "es_ES":
