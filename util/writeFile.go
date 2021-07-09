@@ -1,32 +1,37 @@
 /**
  * 把翻译的数据写回到多语言文件中
-*/
+ */
 package util
 
 import (
-	"fmt"
-	"io/ioutil"
-	"log"
 	"encoding/json"
-	"bytes"
+	"fmt"
+	"log"
+	"os"
 
 	"inAction/trans/def"
 )
 
 func WriteFile(filePath string, langMap def.LangType) {
-	resByte, err := json.Marshal(langMap)
-	if err != nil {
-		log.Fatalln(err)
+	// 打开目标json文件
+	currentFile, err1 := os.OpenFile(
+		filePath,
+		os.O_WRONLY|os.O_TRUNC,
+		0666,
+	)
+	if err1 != nil {
+		log.Fatalln(err1)
 	}
+	defer currentFile.Close()
 
-	// 格式化JSON
-	var formattedBytesBuffer bytes.Buffer
-	json.Indent(&formattedBytesBuffer, resByte, "", "    ")
-
-	err = ioutil.WriteFile(filePath, []byte(formattedBytesBuffer.String()), 0644)
-	if err != nil {
-		log.Fatalln(err)
+	enc := json.NewEncoder(currentFile)
+	// 用四个空 缩进
+	enc.SetIndent("", "    ")
+	enc.SetEscapeHTML(false) // 序列化时不转义特殊字符（如&）
+	err2 := enc.Encode(langMap)
+	if err2 != nil {
+		log.Fatalln(err2)
 	} else {
 		fmt.Printf("%s\n\n", "结果：处理成功")
-	}
+	} 
 }
