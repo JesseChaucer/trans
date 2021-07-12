@@ -25,7 +25,7 @@ func WriteFile(filePath string, langMap def.LangType) {
 	defer currentFile.Close()
 
 	enc := json.NewEncoder(currentFile)
-	// 用四个空 缩进
+	// 用四个空格缩进
 	enc.SetIndent("", "    ")
 	enc.SetEscapeHTML(false) // 序列化时不转义特殊字符（如&）
 	err2 := enc.Encode(langMap)
