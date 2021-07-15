@@ -48,33 +48,19 @@ func transSpecifiedLang(lang string, langMap def.LangType) bool {
 		// fmt.Printf("%#v\n", val)
 		var cn = val.Text       // 中文
 		var translatedText = "" // 对应语言的翻译
-		switch lang {
-			case "fr_FR":
-				translatedText = val.FrFR
-
-			/* case "en_US":
-				translatedText = val.EnUS
-			case "es_ES":
-				translatedText = val.EsES
-			case "ja_JP":
-				translatedText = val.JaJP
-			case "ko_KP":
-				translatedText = val.KoKP
-			case "ru_KZ":
-				translatedText = val.RuKZ
-			case "fr_FR":  // 法语
-				translatedText = val.FrFR
-			case "fa_IR": // 波斯语
-				translatedText = val.FaIR
-			case "id_ID": // 印度尼西亚语
-				translatedText = val.IdID
-			case "tr_TR": // 土耳其语
-				translatedText = val.TrTR
-			case "vi_VN": // 越南语
-				translatedText = val.ViVN
-			case "ar_AE": // 阿拉伯
-				translatedText = val.ArAE */
+		var mapLang = map[string]string{
+			"en_US": val.EnUS, // 英语
+			"es_ES": val.EsES, // 西班牙
+			"ja_JP": val.JaJP, // 日语
+			"ko_KP": val.KoKP, // 韩语
+			"ru_KZ": val.RuKZ, // 俄语
+			"fr_FR": val.FrFR, // 法语
+			"fa_IR": val.FaIR, // 波斯语
+			"id_ID": val.IdID, // 印度尼西亚语
+			"tr_TR": val.TrTR, // 土耳其语
+			"vi_VN": val.ViVN, // 越南语
 		}
+		translatedText = mapLang[lang]
 
 		var md5Text = util.GetMD5Text(cn)
 		if len(translatedText) > 0 {
