@@ -15,6 +15,9 @@ const HelpInfo = `
 
 4. 用指定文案翻译指定文件
     trans -f test.messages.json -id 104407325.1157
+
+5. 用指定文案翻译指定文件，并且只处理指定的语言
+    trans -f test.messages.json -id 104407325.1157 -lang fr_FR
 `
 
 const Api = "http://trans.viabtc.com/api/trans/card/"

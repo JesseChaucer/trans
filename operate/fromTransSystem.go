@@ -82,12 +82,11 @@ func processFunc(filePath string) {
 
 	for key, _ := range langMap {
 		// fmt.Printf("%#v\n", key)
-		// 不是简体和繁体，则翻译
-		if key != "zh_Hans_CN" && key != "zh_Hant_HK" {
-			var res = transSpecifiedLang(key, langMap)
-			if res {
-				flag = true
-			}
+		// 如果命令处参数提供了lang，则只处理指定的语言
+		if len(def.Lang) > 0 {
+			flag = transSpecifiedLang(def.Lang, langMap)
+		} else if key != "zh_Hans_CN" && key != "zh_Hant_HK" {  // 不是简体和繁体，则翻译
+			flag = transSpecifiedLang(key, langMap)
 		}
 	}
 
