@@ -13,6 +13,7 @@ type TransType []struct {
 	JaJP string `json:"ja_JP"`  // 日语
 	KoKP string `json:"ko_KP"`  // 韩语
 	RuKZ string `json:"ru_KZ"`  // 俄语
+	FrFR string `json:"fr_FR"`  // 法语
 	FaIR string `json:"fa_IR"`  // 波斯语
 	IdID string `json:"id_ID"`  // 印度尼西亚语
 	TrTR string `json:"tr_TR"`  // 土耳其语

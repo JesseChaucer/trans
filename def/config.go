@@ -6,6 +6,7 @@ var langMap = map[string]string{
 	"JaJP": "ja_JP", // 日语
 	"KoKP": "ko_KP", // 韩语
 	"RuKZ": "ru_KZ", // 俄语
+	"FrFR": "fr_FR", // 法语
 	"FaIR": "fa_IR", // 波斯语
 	"IdID": "id_ID", // 印度尼西亚语
 	"TrTR": "tr_TR", // 土耳其语
