@@ -14,8 +14,8 @@ import (
 var tranSlice def.TransType
 
 // 获取api数据，返回对应的struct类型的地址
-func getTransData(tranId string) *def.ResDataStruct {
-	var url = def.Api + tranId
+func getTransData() *def.ResDataStruct {
+	var url = def.Api + def.TranId
 	fmt.Printf("Get data from: %s\n", url)
 	resp, err := http.Get(url)
 	if err != nil {
@@ -113,11 +113,11 @@ func processFunc(filePath string) {
 	}
 }
 
-func FromTransSystem(filePath string, tranId string) {
+func FromTransSystem(filePath string) {
 	fmt.Printf("操作：用指定文案翻译指定文件\n\n")
 
 	// 接口返回的翻译数据，转成结构体
-	tranStruct := getTransData(tranId)
+	tranStruct := getTransData()
 	tranSlice = tranStruct.Data.Trans
 
 	util.ProcessAllFile(filePath, processFunc)
