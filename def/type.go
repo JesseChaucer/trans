@@ -12,6 +12,7 @@ type TransType []struct {
 	EsES string `json:"es_ES"`  // 西班牙
 	JaJP string `json:"ja_JP"`  // 日语
 	KoKP string `json:"ko_KP"`  // 韩语
+	PtPT string `json:"pt_PT"`  // 葡萄牙语
 	RuKZ string `json:"ru_KZ"`  // 俄语
 	FrFR string `json:"fr_FR"`  // 法语
 	FaIR string `json:"fa_IR"`  // 波斯语

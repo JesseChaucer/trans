@@ -53,6 +53,7 @@ func transSpecifiedLang(lang string, langMap def.LangType) bool {
 			"es_ES": val.EsES, // 西班牙
 			"ja_JP": val.JaJP, // 日语
 			"ko_KP": val.KoKP, // 韩语
+			"pt_PT": val.PtPT, // 葡萄牙语
 			"ru_KZ": val.RuKZ, // 俄语
 			"fr_FR": val.FrFR, // 法语
 			"fa_IR": val.FaIR, // 波斯语
