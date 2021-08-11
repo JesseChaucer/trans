@@ -2,63 +2,30 @@ package util
 
 import (
 	"fmt"
-	"io/ioutil"
 	"os"
 	"strings"
-	"log"
+	"path/filepath"
 )
 
-// 定义全局变量
-var processFunc func(string)
-
 // 处理文件
-func processFile(filePath string, fileName string) {
+func processFile(filePath string, processFunc func(string)) {
 	// 如果文件名后缀为 messages.json，则处理
+	var fileName string = filepath.Base(filePath)
 	if strings.HasSuffix(fileName, "messages.json") {
 		fmt.Printf("文件：%s\n", filePath)
 		processFunc(filePath)
 	}
 }
 
-// 处理目录
-func processDir(filePath string) {
-	fmt.Printf("---- 当前目录：%s ----\n", filePath)
-
-	// 遍历文件夹下的所有文件，并处理
-	rd, err := ioutil.ReadDir(filePath)
-	if err != nil {
-		log.Printf("read dir error: %v\n", err)
-		return
-	}
-
-	for _, fi := range rd {
-		var fileName = fi.Name()
-		var newPath = filePath + "/" + fileName
-		/**
-		* 1. 当前文件为目录
-		* 2. 不以"."号开头（即不是隐藏文件）
-		 */
-		if fi.IsDir() && !strings.HasPrefix(fileName, ".") {
-			ProcessAllFile(newPath, processFunc)
+// 使用 Walk 函数遍历指定目录下所有的文件和目录
+func ProcessAllFile(filePath string, processFunc func(string)) {
+	filepath.Walk(filePath, func(path string, info os.FileInfo, err error) error {
+		// walk the tree to count files and folders
+		if info.IsDir() {
+			fmt.Printf("---- 当前目录：%s ----\n\n", path)
 		} else {
-			processFile(newPath, fileName)
+			processFile(path, processFunc) // 处理文件
 		}
-	}
-}
-
-// 处理文件 & 目录
-func ProcessAllFile(filePath string, paramProcessFunc func(string)) {
-	processFunc = paramProcessFunc
-
-	myFileInfo, err := os.Stat(filePath)
-	if err != nil {
-		log.Printf("%v\n", err)
-		return
-	}
-
-	if myFileInfo.IsDir() {
-		processDir(filePath) // 处理目录
-	} else {
-		processFile(filePath, myFileInfo.Name()) // 处理文件
-	}
+		return nil
+	})
 }
