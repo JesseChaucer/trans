@@ -8,22 +8,18 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"io/ioutil"
 
 	"inAction/trans/def"
 )
 
 // Encode()方法会在文件末尾写入空行，下面去掉空行
-func delEmptyLine(filePath string) {
-	data, err:= ioutil.ReadFile(filePath)
+func delLastEmptyLine(file *os.File) {
+	fi, err := file.Stat()
 	if err != nil {
-		log.Printf("read file error: %v\n", err)
+		log.Printf("get file stat error: %v\n", err)
 	}
 	// 去掉最后一个字节 "\n"
-	lastByte := data[len(data)-1]
-	if (lastByte == 10) {
-		ioutil.WriteFile(filePath, data[:len(data)-1], 0666)
-	}
+	file.Truncate(fi.Size() - 1)
 }
 
 func WriteFile(filePath string, langMap def.LangType) {
@@ -43,7 +39,7 @@ func WriteFile(filePath string, langMap def.LangType) {
 	enc.SetEscapeHTML(false) // 序列化时不转义特殊字符（如&）
 	err2 := enc.Encode(langMap)
 
-	delEmptyLine(filePath)
+	delLastEmptyLine(currentFile)
 
 	if err2 != nil {
 		log.Fatalln(err2)
