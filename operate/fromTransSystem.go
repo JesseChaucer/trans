@@ -49,6 +49,7 @@ func transSpecifiedLang(lang string, langMap def.LangType) bool {
 		var cn = val.Text       // 中文
 		var translatedText = "" // 对应语言的翻译
 		var mapLang = map[string]string{
+			"de_DE": val.DeDe, // 德语
 			"en_US": val.EnUS, // 英语
 			"es_ES": val.EsES, // 西班牙
 			"ja_JP": val.JaJP, // 日语

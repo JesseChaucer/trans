@@ -20,6 +20,7 @@ type TransType []struct {
 	TrTR string `json:"tr_TR"`  // 土耳其语
 	ViVN string `json:"vi_VN"`  // 越南语
 	ArAE string `json:"ar_AE"`  // 阿拉伯
+	DeDe string `json:de_DE`    // 德语
 }
 
 // 接口返回的数据结构
